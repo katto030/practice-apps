@@ -22,7 +22,7 @@ const deleteEntry = (req, res) => {
 };
 
 const get = (req, res) => {
-  var toGet = {word: { "$regex": req.body.word, "$options": "i" }};
+  var toGet = {word: { "$regex": `${req.query.word}`, "$options": "i" }};
   model.get(toGet, (err, data) => {
     if (err) {
       res.sendStatus(404);
@@ -31,6 +31,16 @@ const get = (req, res) => {
     }
   })
 };
+
+const getAll = (req, res) => {
+  model.get({}, (err, data) => {
+    if (err) {
+      res.sendStatus(404);
+    } else {
+      res.status(200).json(data);
+    }
+  })
+}
 
 const edit = (req, res) => {
   model.edit({word: req.body.word}, {definition: req.body.definition}, (err) => {
@@ -46,3 +56,4 @@ module.exports.post = post;
 module.exports.delete = deleteEntry;
 module.exports.get = get;
 module.exports.edit = edit;
+module.exports.getAll = getAll;

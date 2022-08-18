@@ -14,10 +14,7 @@ const deleteEntry = (data, cb) => {
 
 const get = (data, cb) => {
   db.Glossary.find(data)
-  .then((data) => {
-    console.log('--find result--: ',data);
-    cb(null, data);
-  })
+  .then((data) => cb(null, data))
   .catch((err) => cb(err))
 }
 

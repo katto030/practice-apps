@@ -11,7 +11,9 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 app.use(express.json());
 app.use(morgan('dev'));
 
-router.get('/', controller.get);
+router.get('/word', controller.get);
+
+router.get('/', controller.getAll);
 
 router.post('/', controller.post);
 
@@ -22,4 +24,5 @@ router.put('/', controller.edit);
 app.use('/glossary', router);
 
 app.listen(process.env.PORT);
+
 console.log(`Listening at http://localhost:${process.env.PORT}`);
