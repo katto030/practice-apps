@@ -16,12 +16,12 @@ class GlossaryListEntry extends React.Component {
     if (this.state.clicked) {
       def.setAttribute('contenteditable', 'false');
       def.style['border-color'] = "white";
-      btn.innerText = 'edit';
+      btn.innerText = 'Edit';
       btn.style['background-color'] = 'rgb(243, 243, 243)';
     } else {
       def.setAttribute('contenteditable', 'true');
       def.style['border-color'] = "pink";
-      btn.innerText = 'save';
+      btn.innerText = 'Save';
       btn.style['background-color'] = 'pink';
     }
 
@@ -38,35 +38,17 @@ class GlossaryListEntry extends React.Component {
   render() {
     return (
       <div className="entry">
-        <div><h4>{this.props.word.word}: </h4></div>
-        <div><h4 className="edit-box"contentEditable="false" id={this.props.word.word}>{this.props.word.definition}</h4></div>
-        <div>
-          <button id={`${this.props.word.word}-btn`}onClick={() => this.edit(this.props.word.word)}>edit</button>
-          <button onClick={() => this.props.delete(props.word.word)}>delete</button>
+        <div className="text">
+          <h4 id="word">{this.props.word.word}: </h4><h4 className="edit-box" contentEditable="false" id={this.props.word.word}>{this.props.word.definition}</h4>
+        </div>
+        <div className="entry-buttons">
+          <i className="fa-regular fa-star fa-lg"></i>
+          <button className="entry-button" id={`${this.props.word.word}-btn`} onClick={() => this.edit(this.props.word.word)}>Edit</button>
+          <button className="entry-button" onClick={() => this.props.delete(this.props.word.word)}>Delete</button>
         </div>
       </div>
     )
   }
 }
-
-
-
-
-
-
-
-
-// var GlossaryListEntry = (props) => {
-//   return (
-//     <div className="entry">
-//       <div><h4>{props.word.word}: </h4></div>
-//       <div><h4 className="edit-box"contentEditable="false" id={props.word.word}>{props.word.definition}</h4></div>
-//       <div>
-//         <button onClick={() => props.delete(props.word.word)}>delete</button>
-//         <button onClick={() => props.edit(props.word.word)}>edit</button>
-//       </div>
-//     </div>
-//   )
-// }
 
 export default GlossaryListEntry;

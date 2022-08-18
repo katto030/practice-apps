@@ -55,10 +55,10 @@ class App extends React.Component {
     this.getAll();
     axios.get('/glossary/word', {params: {word: this.state.word}})
     .then((res) => {
-      document.getElementById("search-form").reset();
+      document.getElementById("search").reset();
       this.setState({
         currList: res.data
-      })
+      });
     })
   }
 
@@ -66,13 +66,16 @@ class App extends React.Component {
     event.preventDefault();
     axios.post('/glossary', {word: this.state.word, definition: this.state.definition})
     .then(() => {
-      document.getElementById("add-form").reset();
+      document.getElementById("add").reset();
       this.getAll();
     })
-    .catch((err) => alert('unable to add word'))
+    .catch((err) => {
+      console.log(err);
+    })
   }
 
   delete(word) {
+    console.log('delete')
     axios.delete('/glossary', {data: {word: word}})
     .then(() => this.getAll())
     .catch((err) => console.error(err))
@@ -90,7 +93,7 @@ class App extends React.Component {
   render() {
     return (
       <div id="app">
-        <div className="header"><p className="title">Glossary List</p></div>
+        <div className="header"><p onClick={() => this.getAll()} className="title">Glossary List</p></div>
         <Search click={this.searchClick} change={this.wordChange} />
         <AddForm wordChange={this.wordChange} defChange={this.definitionChange} submit={this.formSubmit}/>
         <GlossaryList getAll={this.getAll} delete={this.delete} list={this.state.currList} />

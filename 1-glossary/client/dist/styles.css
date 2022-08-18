@@ -43,6 +43,11 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
+button {
+  border-radius: 5px;
+  background-color: rgb(243, 243, 243);
+}
+
 /*        --header--        */
 .header {
   width: 100%;
@@ -57,30 +62,136 @@ body {
   font-size: 35px;
 }
 
-/*        --header--        */
+.title:hover {
+  color: pink;
+}
 
 
+/*        --search--        */
+.search {
+  border-style: solid;
+  border-radius: 30px;
+  border-color: lightgray;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  height: 50px;
+}
 
-
-.entry {
+#search-bar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-top: 10.5px;
+}
+
+#search-form {
+  border-width:0px;
+  border:none;
+  outline:none;
+  margin: auto;
+  width: 250px;
+  text-align: center;
+}
+
+#search-form:focus::placeholder {
+  color:transparent
+}
+
+.fa-magnifying-glass:hover {
+  color: pink;
+}
+
+span {
+  margin: auto;
+}
+
+/*        --add form--        */
+#add-form-title {
+  padding: 10px 20px;
+  margin: auto;
+}
+
+#add-form {
+  padding: 10px 25%;
+  background-color: rgb(248, 232, 234);
+  width: 40%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#add-button {
+  margin-top: 10px;
+  margin-bottom: 3px;
+}
+
+/*        --glossary list--        */
+#glossary-list-title {
+  padding: 10px 20px;
+  margin: auto;
+}
+
+.glossary-list-entries {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*        --glossary list entry--        */
+.entry {
+  width: 85%;
+  border-radius: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  margin: 5px 0px;
+  border-color: lightgray;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text {
+  margin: 8px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .edit-box {
   border-style: solid;
   border-width: 2px;
   border-color: white;
-  border-radius: 2px;
-}
-
-button {
-  background-color: rgb(243, 243, 243);
   border-radius: 5px;
+  padding: 0 5px;
+  width: 500px;
 }
 
-/* input{
-  border-width:0px;
-  border:none;
-  outline:none;
-} */
+#word {
+  width: 100px;
+  margin-right: 20px;
+}
+
+.entry-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.entry-button {
+  margin-right: 8px;
+  border-color: lightgray;
+}
+
+.fa-star {
+  margin-right: 8px;
+}
+
